@@ -53,31 +53,25 @@
 ![alt text](./images/vmware-create1.png)
 
 3. เลือก Install disc image file เป็นไฟล์ ISO ของ ESXi ที่ได้ Download มา<br/>
-
 ![alt text](./images/vmware-create2.png)
 
 4. ตั้งชื่อ VM เป็นรูปแบบ `รหัสนักศึกษา-ESXi` เช่น 66070999-ESXi<br/>
-
 ![alt text](./images/vmware-create3.png)
 
 5. ใช้ค่า Disk Size ที่กำหนดมาให้ คือ 142.0 GB (VMware จะไม่ใช้พื้นที่จำนวนนั้นทันที่ เพราะเป็นการ Allocate แบบ Dynamic ใช้พื้นที่แค่เท่าที่ VM นั้น ๆ ใช้)<br/>
-
 ![alt text](./images/vmware-create4.png)
 
 6. เมื่อมาถึงหน้า Summary แล้วเลือก `Customize Hardware...` เพื่อปรับประสิทธิภาพให้ดียิ่งขึ้น<br/>
-
 ![alt text](./images/vmware-create5.png)
 
 7. ปรับค่า Memory เป็น 8 GB (คอมในห้อง Lab มี RAM 16 GB)<br/>
-
 ![alt text](./images/vmware-customize.png)
 
-8. ปรับค่า Processors เป็น 1 Processors 6 Cores
+8. ปรับค่า Processors เป็น 1 Processors 6 Cores<br/>
+![alt text](./images/vmware-customize2.png)
 
-    > [!IMPORTANT]
-    > ต้องเปิดการตั้งค่า Virtualize Intel VT-x/EPT or AMD-V/RVI ไม่งั้น ESXi จะไม่สามารถทำงานได้
-
-    ![alt text](./images/vmware-customize2.png)
+> [!IMPORTANT]
+> ต้องเปิดการตั้งค่า Virtualize Intel VT-x/EPT or AMD-V/RVI ไม่งั้น ESXi จะไม่สามารถทำงานได้
 
 9. กด Close และกด Finish
 
