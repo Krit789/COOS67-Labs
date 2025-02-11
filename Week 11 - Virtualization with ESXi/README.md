@@ -3,7 +3,7 @@
 # Section 0: Introduction
 
 <p align="center">
-<img src="https://gist.githubusercontent.com/Krit789/3eb7c16f7b20ff69aa539e4ee36ba72e/raw/84617c9a185ae9673e5bc58d2d555bdd027cbc89/ESXiNW_.png">
+<img src="./images/ESXiNW_.png">
 </p>
 
 ### **VMware ESXi คืออะไร**
@@ -17,13 +17,13 @@
 2. **Isolation:** แต่ละ VM ทำงานแยกจากกันอย่างสมบูรณ์ (isolated environment) หาก VM หนึ่งมีปัญหา จะไม่กระทบ VM อื่น ๆ
 3. **Centralized Management (vCenter Server):** แม้ ESXi จะทำงานได้ด้วยตัวเอง แต่โดยทั่วไปจะใช้ร่วมกับ vCenter Server เพื่อให้สามารถบริหารจัดการ ESXi hosts และ VMs หลาย ๆ ตัวได้จากศูนย์กลาง (centralized management)
 <p align="center">
-<img src="https://gist.githubusercontent.com/Krit789/3eb7c16f7b20ff69aa539e4ee36ba72e/raw/84617c9a185ae9673e5bc58d2d555bdd027cbc89/vCenter.png" height="300" >
+<img src="./images/vCenter.png" height="300" >
 </p>
 
 4. **High Availability & Fault Tolerance (with vCenter):** สามารถทำ High Availability (HA) เพื่อให้ VM ย้ายไปทำงานบน host อื่นได้อัตโนมัติเมื่อ host หลักมีปัญหา และ Fault Tolerance (FT) เพื่อให้ VM มีสำเนาทำงานพร้อมกันบน host อื่นตลอดเวลา
 5. **vMotion (with vCenter):** ย้าย VM ที่กำลังทำงานอยู่ (live migration) จาก ESXi host หนึ่งไปยังอีก host หนึ่งได้โดยไม่มี downtime (zero downtime)
 <p align="center">
-<img src="https://gist.githubusercontent.com/Krit789/3eb7c16f7b20ff69aa539e4ee36ba72e/raw/84617c9a185ae9673e5bc58d2d555bdd027cbc89/vMotion.png" width="300" >
+<img src="./images/vMotion.png" width="300" >
 </p>
 
 # Section 1: Preparation
