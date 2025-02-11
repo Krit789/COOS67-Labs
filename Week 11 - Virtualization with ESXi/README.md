@@ -29,7 +29,7 @@
 # Section 1: Preparation
 
 > [!WARNING]
->**<ins>⚠️ หมายเหตุ</ins>** ESXi ไม่รองรับสถาปัตยกรรม ARM ดังนั้น Apple Silicon ไม่สามารถใช้งานได้
+>⚠️**<ins>หมายเหตุ</ins>** ESXi ไม่รองรับสถาปัตยกรรม ARM ดังนั้น Apple Silicon ไม่สามารถใช้งานได้
 
 ## Prerequisite - ข้อกำหนดเบื้องต้น
 - ต้องมี VMware Workstation ติดตั้งอยู่บนเครื่อง หากไม่มีให้ Download และติดตั้งจากที่นี่
@@ -37,11 +37,36 @@
     - [Workstation Pro 17.6.1 for Linux](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Workstation-Full-17.6.1-24319023.x86_64.bundle)
     - [Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
     - **ตอนเปิดใช้งานครั้งแรกอย่าลืมเลือก**<br/>✅ Use VMware Workstation 17 for Personal Use สำหรับ Windows/Linux<br/>✅ I want to license VMware Fusion 13 Pro for Personal use. สำหรับ macOS
-- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด `msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png) จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
+- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด `msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
 <br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>ให้ใช้ [Batch Script นี้](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
 
 ## Installation - การติดตั้ง
 
 1. เริ่มต้นด้วยการ Download ไฟล์ติดตั้ง VMware ESXi โดยสามารถ Download ได้จากที่นี่
-    - [VMware VMvisor Installer 8.0U3.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3-24022510.x86_64.iso)
-2. 
+    - [VMware VMvisor Installer 8.0U3b.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
+2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/>
+![alt text](./images/vmware-create.png)
+3. เลือก `Typical (recommended)`
+<br/>
+![alt text](./images/vmware-create1.png)
+3. เลือก Install disc image file เป็นไฟล์ ISO ของ ESXi ที่ได้ Download มา<br/>
+![alt text](./images/vmware-create2.png)
+4. ตั้งชื่อ VM เป็นรูปแบบ `รหัสนักศึกษา-ESXi` เช่น 66070999-ESXi<br/>
+![alt text](./images/vmware-create3.png)
+5. ใช้ค่า Disk Size ที่กำหนดมาให้ คือ 142.0 GB (VMware จะไม่ใช้พื้นที่จำนวนนั้นทันที่ เพราะเป็นการ Allocate แบบ Dynamic ใช้พื้นที่แค่เท่าที่ VM นั้น ๆ ใช้)<br/>
+![alt text](./images/vmware-create4.png)
+6. เมื่อมาถึงหน้า Summary แล้วเลือก `Customize Hardware...` เพื่อปรับประสิทธิภาพให้ดียิ่งขึ้น<br/>
+![alt text](./images/vmware-create5.png)
+7. ปรับค่า Memory เป็น 8 GB (คอมในห้อง Lab มี RAM 16 GB)<br/>
+![alt text](./images/vmware-customize.png)
+8. ปรับค่า Processors เป็น 1 Processors 6 Cores
+
+    > [!IMPORTANT]
+    > ต้องเปิดการตั้งค่า Virtualize Intel VT-x/EPT or AMD-V/RVI ไม่งั้น ESXi จะไม่สามารถทำงานได้
+
+    ![alt text](./images/vmware-customize2.png)
+
+9. กด Close และกด Finish
+
+10. หากเปิด VM แล้วพบ Error นี้ ให้เลือก No แล้วกลับไปทำขั้นตอน [Prerequisite - ข้อกำหนดเบื้องต้น](#prerequisite---ข้อกำหนดเบื้องต้น) ใหม่<br/>
+![alt text](./images/vmware-vtd.png)
