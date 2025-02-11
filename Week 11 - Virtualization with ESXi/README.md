@@ -28,8 +28,8 @@
 
 # Section 1: Preparation
 
-> [!WARNING]
->⚠️<ins>**หมายเหตุ**</ins> ESXi ไม่รองรับสถาปัตยกรรม ARM ดังนั้น Apple Silicon ไม่สามารถใช้งานได้
+<!-- > [!WARNING]
+>⚠️<ins>**หมายเหตุ**</ins> ESXi ไม่รองรับสถาปัตยกรรม ARM ดังนั้น Apple Silicon ไม่สามารถใช้งานได้ -->
 
 ## Prerequisite - ข้อกำหนดเบื้องต้น
 - ต้องมี VMware Workstation ติดตั้งอยู่บนเครื่อง หากไม่มีให้ Download และติดตั้งจากที่นี่
@@ -43,7 +43,8 @@
 ## Setup - เตรียมการติดตั้ง
 
 1. เริ่มต้นด้วยการ Download ไฟล์ติดตั้ง VMware ESXi โดยสามารถ Download ได้จากที่นี่
-    - [VMware VMvisor Installer 8.0U3b.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
+    - **x86_64**: [VMware VMvisor Installer 8.0U3b x86_64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
+    - **ARM64**: [VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso)
 2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/>
 ![alt text](./images/vmware-create.png)
 
@@ -66,12 +67,51 @@
 ![alt text](./images/vmware-customize.png)
 
 8. ปรับค่า Processors เป็น 1 Processors 6 Cores<br/>
-![alt text](./images/vmware-customize2.png)
 
 > [!IMPORTANT]
 > ต้องเปิดการตั้งค่า Virtualize Intel VT-x/EPT or AMD-V/RVI ไม่งั้น ESXi จะไม่สามารถทำงานได้
+
+   ![alt text](./images/vmware-customize2.png)
 
 9. กด Close และกด Finish
 
 10. หากเปิด VM แล้วพบ Error นี้ ให้เลือก No แล้วกลับไปทำขั้นตอน [Prerequisite - ข้อกำหนดเบื้องต้น](#prerequisite---ข้อกำหนดเบื้องต้น) ใหม่<br/>
 ![alt text](./images/vmware-vtd.png)
+
+## Installation - การติดตั้ง
+
+1. ทำการ Start Virtual Machine และจะพบกับหน้านี้<br/>
+![alt text](./images/esxi-boot.png)
+
+2.  กด `Shift + O` เพื่อเพิ่ม Boot options และใส่ Boot Option ดังนี้ และกด Enter:
+
+    ```
+    autoPartitionOSDataSize=4096 allowLegacyCPU=true
+    ```
+
+    ![alt text](./images/esxi-bootopt.png)
+
+    *   `autoPartitionOSDataSize=4096`:  กำหนดขนาด (เป็น MB) ของพาร์ติชัน OSData ซึ่งเป็นพาร์ติชันที่ ESXi ใช้เก็บข้อมูลการกำหนดค่า, logs, และ VMFS datastore ค่าเริ่มต้นคือ 138GB, แต่ในที่นี้เราตั้งค่าเป็น 4096 MB (4GB) เพื่อประหยัดพื้นที่
+
+    *   `allowLegacyCPU=true`:  อนุญาตให้ ESXi ติดตั้งและทำงานบน CPU รุ่นเก่าที่อาจไม่ได้รับการสนับสนุนอย่างเป็นทางการ
+
+3. เมื่อ Install ทำงานเสร็จสิ้นจะพบกับหน้านี้ และกด Enter<br/>
+![alt text](./images/esxi-booting.png)<br/><br/>
+![alt text](./images/esxi-setup1.png)
+
+4. จากนั้นกด F11 เพือยอมรับ EULA<br/>
+![alt text](./images/esxi-eula.png)
+
+5. รอ Scan หา Media สำหรับใช้ติดตั้ง เมื่อ Scan เสร็จกด Enter เพื่อเลือก Media นั้น ๆ และไปต่อ<br/>
+![alt text](./images/esxi-mediascan.png)<br/><br/>
+![alt text](./images/esxi-mediaselect.png)
+
+6. เลือก Default Keyboard Layout<br/>
+![alt text](./images/esxi-kb.png)
+
+7. ใส่ Root Password ที่จดจำได้
+
+> [!IMPORTANT]
+> หากลืมรหัสผ่านนี้จะไม่สามารถใช้งาน ESXi ได้
+
+![alt text](./images/esxi-password.png)

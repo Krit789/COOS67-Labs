@@ -18,7 +18,7 @@ dism.exe /Online /Disable-Feature /FeatureName:Microsoft-Windows-Subsystem-Linux
 echo Done.
 
 echo You must reboot your computer for these changes to take effect.
-choice /M "Do you want to reboot now? (Y/N)" /T 10 /D Y
+choice /M "Do you want to reboot now? (Y/N) " /T 10 /D Y
 if errorlevel 2 goto noreboot
 if errorlevel 1 shutdown /r /t 5
 goto end
