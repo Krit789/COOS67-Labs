@@ -109,9 +109,36 @@
 6. เลือก Default Keyboard Layout<br/>
 ![alt text](./images/esxi-kb.png)
 
-7. ใส่ Root Password ที่จดจำได้
+7. ใส่ Root Password ที่จดจำได้ โดยรหัสต้องมีความยาวอย่างน้อย 7 ตัวอักษร
+    - โดยประกอบด้วย
+        - ตัวพิมพ์ใหญ่ (ABC...)
+        - ตัวพิมพ์เล็ก (abc...)
+        - ตัวเลข (123...)
+        - ตัวอักษรพิเศษ (!@#$%...)
+<br/>
+
+![alt text](./images/esxi-password.png)
 
 > [!IMPORTANT]
 > หากลืมรหัสผ่านนี้จะไม่สามารถใช้งาน ESXi ได้
 
-![alt text](./images/esxi-password.png)
+
+8. จากนั้นทำการยืนยันการติดตั้ง ด้วยการกด F11 <br/>
+![alt text](./images/esxi-confirm.png)<br/><br/>
+![alt text](./images/esxi-install.png)
+
+9. สุดท้ายทำการกด Enter เพื่อ Reboot และเริ่มใช้งาน<br/>
+![alt text](./images/esxi-reboot.png)
+
+10. ถ้าทุกอย่างสมบูรณ์ จะพบกับหน้านี้<br/>
+![alt text](./images/esxi-finish.png)
+
+## Using ESXi - ใช้งาน ESXi
+1. นำ IP Address ที่ปรากฏในหน้าของ VM Console ไปใส่ใน Browser และใส่รหัส root ที่ได้กรอกไว้ก่อนหน้า โดย Username: `root`<br/>
+![alt text](./images/esxi-weblogin.png)
+
+2. เมือ Login ครั้งแรก นำตัวเลือก Join the VMware Customer Experience Improvement Program **ออก** และกด OK
+![alt text](./images/esxi-donotjoin.png)
+
+3. เริ่มใช้งานได้เลย
+![alt text](./images/esxi-welcome.png)
