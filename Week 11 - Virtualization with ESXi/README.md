@@ -47,9 +47,7 @@
 2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/>
 ![alt text](./images/vmware-create.png)
 
-3. เลือก `Typical (recommended)`
-<br/>
-
+3. เลือก `Typical (recommended)`<br/>
 ![alt text](./images/vmware-create1.png)
 
 3. เลือก Install disc image file เป็นไฟล์ ISO ของ ESXi ที่ได้ Download มา<br/>
