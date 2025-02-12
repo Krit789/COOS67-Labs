@@ -100,7 +100,7 @@
 ![alt text](./images/esxi-booting.png)<br/><br/>
 ![alt text](./images/esxi-setup1.png)
 
-4. จากนั้นกด F11 เพือยอมรับ EULA<br/>
+4. จากนั้นกด F11 เพือยอมรับ EULA<br/><br/>
 ![alt text](./images/esxi-eula.png)
 
 5. รอ Scan หา Media สำหรับใช้ติดตั้ง เมื่อ Scan เสร็จกด Enter เพื่อเลือก Media นั้น ๆ และไปต่อ<br/><br/>
@@ -144,8 +144,8 @@
 3. เริ่มใช้งานได้เลย<br/><br/>
 ![alt text](./images/esxi-welcome.png)
 
-4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/><br/>
-`Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`
+4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/>
+`Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`<br/><br/>
 ![alt text](./images/esxi-store.png)<br/><br/>
 ![alt text](./images/esxi-datastorebrowser.png)
 
@@ -161,7 +161,7 @@
 8. ปรับค่า Virtual Machine เช่นให้ CPU, RAM หรือ Storage เพิ่ม<br/><br/>
 ![alt text](./images/esxi-create4.png)
 
-9. ทำการเพิ่ม ISO สำหรับติดตั้ง OS ของ Virtual Machine โดยการเปลี่ยนจาก `Host device` เป็น `Datastore ISO file` และเลือก ISO ที่ได้ทำการอัพโหลดจากขั้นตอนที่ 4
+9. ทำการเพิ่ม ISO สำหรับติดตั้ง OS ของ Virtual Machine โดยการเปลี่ยนจาก `Host device` เป็น `Datastore ISO file` และเลือก ISO ที่ได้ทำการอัพโหลดจากขั้นตอนที่ 4<br/><br/>
 ![alt text](./images/esxi-isomount.png)<br/><br/>
 ![alt text](./images/esxi-isomount2.png)<br/><br/>
 ![alt text](./images/esxi-isomount3.png)
