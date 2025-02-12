@@ -91,7 +91,8 @@
 
     ![alt text](./images/esxi-bootopt.png)
 
-    *   `autoPartitionOSDataSize=4096`:  กำหนดขนาด (เป็น MB) ของพาร์ติชัน OSData ซึ่งเป็นพาร์ติชันที่ ESXi ใช้เก็บข้อมูลการกำหนดค่า, logs, และ VMFS datastore ค่าเริ่มต้นคือ 138GB, แต่ในที่นี้เราตั้งค่าเป็น 4096 MB (4GB) เพื่อประหยัดพื้นที่
+    *   `autoPartitionOSDataSize=4096`:  กำหนดขนาด (เป็น MB) ของพาร์ติชัน VMFSL (VMware File System Layer) ซึ่งเป็นพาร์ติชันที่ ESXi ใช้เก็บข้อมูลการกำหนดค่า, logs, และ VMFS datastore ค่าเริ่มต้นคือ 138GB, แต่ในที่นี้เราตั้งค่าเป็น 4096 MB (4GB) เพื่อประหยัดพื้นที่
+![VMFSL](./images/VMFSL.jpg)
 
     *   `allowLegacyCPU=true`:  อนุญาตให้ ESXi ติดตั้งและทำงานบน CPU รุ่นเก่าที่อาจไม่ได้รับการสนับสนุนอย่างเป็นทางการ
 
@@ -151,4 +152,32 @@
 5. สร้าง Virtual Machine ใหม่ ด้วยการกด `Create / Register VM`<br/>
 ![alt text](./images/esxi-vmregister.png)
 
-6. 
+6. ตั้งชื่อ Virtual Machine และเลือก OS ที่ใช้<br/>
+![alt text](./images/esxi-create2.png)
+
+7. เลือก Datastore ที่ต้องการใช้จัดเก็บ Virtual Machine นั้น ๆ<br/>
+![alt text](./images/esxi-create3.png)
+
+8. ปรับค่า Virtual Machine เช่นให้ CPU, RAM หรือ Storage เพิ่ม<br/>
+![alt text](./images/esxi-create4.png)
+
+9. ทำการเพิ่ม ISO สำหรับติดตั้ง OS ของ Virtual Machine โดยการเปลี่ยนจาก `Host device` เป็น `Datastore ISO file` และเลือก ISO ที่ได้ทำการอัพโหลดจากขั้นตอนที่ 4
+![alt text](./images/esxi-isomount.png)<br/><br/>
+![alt text](./images/esxi-isomount2.png)<br/><br/>
+
+> [!IMPORTANT]
+> อย่าลืมเลือก ✅ Connect และ ✅ Connect at power on ด้วย
+
+![alt text](./images/esxi-isomount3.png)
+
+10. ตรวจสอบและยืนยันการตั้งค่า<br/>
+![alt text](./images/esxi-create5.png)
+
+11. Virtual Machine ได้ถูกสร้างขึ้นสำเร็จแล้ว<br/>
+![alt text](./images/esxi-create6.png)
+
+12. กด Power On เพื่อเริ่ม Virtual Machine<br/>
+![alt text](./images/esxi-create7.png)
+
+13. จากนั้นจะมี Pop-up สำหรับ Remote Console ขึ้นมา และสามารถเริ่มการติดตั้งได้เลย<br/>
+![alt text](./images/esxi-create8.png)
