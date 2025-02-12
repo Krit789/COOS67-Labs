@@ -138,7 +138,7 @@
 1. นำ IP Address ที่ปรากฏในหน้าของ VM Console ไปใส่ใน Browser และใส่รหัส root ที่ได้กรอกไว้ก่อนหน้า โดย Username: `root`<br/><br/>
 ![alt text](./images/esxi-weblogin.png)
 
-2. เมือ Login ครั้งแรก นำตัวเลือก Join the VMware Customer Experience Improvement Program **ออก** และกด OK<br/><br/>
+2. เมื่อ Login ครั้งแรก นำตัวเลือก Join the VMware Customer Experience Improvement Program **ออก** และกด OK<br/><br/>
 ![alt text](./images/esxi-donotjoin.png)
 
 3. เริ่มใช้งานได้เลย<br/><br/>
@@ -187,6 +187,6 @@
 ![alt text](./images/esxi-create8.png)
 
 > [!TIP]
-> เพื่อประสิทธิภาพการใช้งานที่ดี (เช่น การประขนาดหน้าจอได้) ควรติดตั้ง VMware Tools หลังติดตั้ง OS เสร็จสิ้น
+> เพื่อประสิทธิภาพการใช้งานที่ดี (เช่น การปรับขนาดหน้าจอได้) ควรติดตั้ง VMware Tools หลังติดตั้ง OS เสร็จสิ้น
 > - [วิธีสำหรับ Windows Guest](https://youtu.be/njK5Em1H5Po?feature=shared&t=25)
 > - [วิธีสำหรับ Linux Guest](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/tools/11-1-0/vmware-tools-administration-11-1-0/installing-vmware-tools/install-open-vm-tools.html)
