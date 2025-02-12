@@ -145,7 +145,12 @@
 ![alt text](./images/esxi-welcome.png)
 
 4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/>
-`Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`<br/><br/>
+`Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`
+- โดยสามารถ Download ISO ต่าง ๆ ได้ดังนี้
+    - Ubuntu: [https://ubuntu.com/download/](https://ubuntu.com/download/)
+    - Windows: [https://massgrave.dev/genuine-installation-media](https://massgrave.dev/genuine-installation-media)
+
+<br/><br/>
 ![alt text](./images/esxi-store.png)<br/><br/>
 ![alt text](./images/esxi-datastorebrowser.png)
 
@@ -180,3 +185,8 @@
 
 13. จากนั้นจะมี Pop-up สำหรับ Remote Console ขึ้นมา และสามารถเริ่มการติดตั้งได้เลย<br/><br/>
 ![alt text](./images/esxi-create8.png)
+
+> [!TIPS]
+> เพื่อประสิทธิภาพการใช้งานที่ดี (เช่น การประขนาดหน้าจอได้) ควรติดตั้ง VMware Tools หลังติดตั้ง OS เสร็จสิ้น
+> (วิธีสำหรับ Windows Guest)[https://youtu.be/njK5Em1H5Po?feature=shared&t=25]
+> (วิธีสำหรับ Linux Guest)[https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/tools/11-1-0/vmware-tools-administration-11-1-0/installing-vmware-tools/install-open-vm-tools.html]
