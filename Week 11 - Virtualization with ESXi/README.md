@@ -142,3 +142,13 @@
 
 3. เริ่มใช้งานได้เลย
 ![alt text](./images/esxi-welcome.png)
+
+4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/>
+`Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`
+![alt text](./images/esxi-store.png)<br/><br/>
+![alt text](./images/esxi-datastorebrowser.png)
+
+5. สร้าง Virtual Machine ใหม่ ด้วยการกด `Create / Register VM`<br/>
+![alt text](./images/esxi-vmregister.png)
+
+6. 
