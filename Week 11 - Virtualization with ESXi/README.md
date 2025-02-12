@@ -164,11 +164,10 @@
 9. ทำการเพิ่ม ISO สำหรับติดตั้ง OS ของ Virtual Machine โดยการเปลี่ยนจาก `Host device` เป็น `Datastore ISO file` และเลือก ISO ที่ได้ทำการอัพโหลดจากขั้นตอนที่ 4
 ![alt text](./images/esxi-isomount.png)<br/><br/>
 ![alt text](./images/esxi-isomount2.png)<br/><br/>
+![alt text](./images/esxi-isomount3.png)
 
 > [!IMPORTANT]
 > อย่าลืมเลือก ✅ Connect และ ✅ Connect at power on ด้วย
-
-![alt text](./images/esxi-isomount3.png)
 
 10. ตรวจสอบและยืนยันการตั้งค่า<br/>
 ![alt text](./images/esxi-create5.png)
