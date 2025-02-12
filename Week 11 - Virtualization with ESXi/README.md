@@ -37,7 +37,7 @@
     - [Workstation Pro 17.6.1 for Linux](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Workstation-Full-17.6.1-24319023.x86_64.bundle)
     - [Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
     - **ตอนเปิดใช้งานครั้งแรกอย่าลืมเลือก**<br/>✅ Use VMware Workstation 17 for Personal Use สำหรับ Windows/Linux<br/>✅ I want to license VMware Fusion 13 Pro for Personal use. สำหรับ macOS
-- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด `msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
+- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด `msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่<br/>
 <br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>ให้ใช้ [Batch Script นี้](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
 
 ## Setup - เตรียมการติดตั้ง
@@ -45,28 +45,28 @@
 1. เริ่มต้นด้วยการ Download ไฟล์ติดตั้ง VMware ESXi โดยสามารถ Download ได้จากที่นี่
     - **x86_64**: [VMware VMvisor Installer 8.0U3b x86_64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
     - **ARM64**: [VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso)
-2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/>
+2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/><br/>
 ![alt text](./images/vmware-create.png)
 
-3. เลือก `Typical (recommended)`<br/>
+3. เลือก `Typical (recommended)`<br/><br/>
 ![alt text](./images/vmware-create1.png)
 
-3. เลือก Install disc image file เป็นไฟล์ ISO ของ ESXi ที่ได้ Download มา<br/>
+3. เลือก Install disc image file เป็นไฟล์ ISO ของ ESXi ที่ได้ Download มา<br/><br/>
 ![alt text](./images/vmware-create2.png)
 
-4. ตั้งชื่อ VM เป็นรูปแบบ `รหัสนักศึกษา-ESXi` เช่น 66070999-ESXi<br/>
+4. ตั้งชื่อ VM เป็นรูปแบบ `รหัสนักศึกษา-ESXi` เช่น 66070999-ESXi<br/><br/>
 ![alt text](./images/vmware-create3.png)
 
-5. ใช้ค่า Disk Size ที่กำหนดมาให้ คือ 142.0 GB (VMware จะไม่ใช้พื้นที่จำนวนนั้นทันที่ เพราะเป็นการ Allocate แบบ Dynamic ใช้พื้นที่แค่เท่าที่ VM นั้น ๆ ใช้)<br/>
+5. ใช้ค่า Disk Size ที่กำหนดมาให้ คือ 142.0 GB (VMware จะไม่ใช้พื้นที่จำนวนนั้นทันที่ เพราะเป็นการ Allocate แบบ Dynamic ใช้พื้นที่แค่เท่าที่ VM นั้น ๆ ใช้)<br/><br/>
 ![alt text](./images/vmware-create4.png)
 
-6. เมื่อมาถึงหน้า Summary แล้วเลือก `Customize Hardware...` เพื่อปรับประสิทธิภาพให้ดียิ่งขึ้น<br/>
+6. เมื่อมาถึงหน้า Summary แล้วเลือก `Customize Hardware...` เพื่อปรับประสิทธิภาพให้ดียิ่งขึ้น<br/><br/>
 ![alt text](./images/vmware-create5.png)
 
-7. ปรับค่า Memory เป็น 8 GB (คอมในห้อง Lab มี RAM 16 GB)<br/>
+7. ปรับค่า Memory เป็น 8 GB (คอมในห้อง Lab มี RAM 16 GB)<br/><br/>
 ![alt text](./images/vmware-customize.png)
 
-8. ปรับค่า Processors เป็น 1 Processors 6 Cores<br/>
+8. ปรับค่า Processors เป็น 1 Processors 6 Cores<br/><br/>
 
 > [!IMPORTANT]
 > ต้องเปิดการตั้งค่า Virtualize Intel VT-x/EPT or AMD-V/RVI ไม่งั้น ESXi จะไม่สามารถทำงานได้
@@ -75,12 +75,12 @@
 
 9. กด Close และกด Finish
 
-10. หากเปิด VM แล้วพบ Error นี้ ให้เลือก No แล้วกลับไปทำขั้นตอน [Prerequisite - ข้อกำหนดเบื้องต้น](#prerequisite---ข้อกำหนดเบื้องต้น) ใหม่<br/>
+10. หากเปิด VM แล้วพบ Error นี้ ให้เลือก No แล้วกลับไปทำขั้นตอน [Prerequisite - ข้อกำหนดเบื้องต้น](#prerequisite---ข้อกำหนดเบื้องต้น) ใหม่<br/><br/>
 ![alt text](./images/vmware-vtd.png)
 
 ## Installation - การติดตั้ง
 
-1. ทำการ Start Virtual Machine และจะพบกับหน้านี้<br/>
+1. ทำการ Start Virtual Machine และจะพบกับหน้านี้<br/><br/>
 ![alt text](./images/esxi-boot.png)
 
 2.  กด `Shift + O` เพื่อเพิ่ม Boot options และใส่ Boot Option ดังนี้ และกด Enter:
@@ -96,14 +96,14 @@
 
     *   `allowLegacyCPU=true`:  อนุญาตให้ ESXi ติดตั้งและทำงานบน CPU รุ่นเก่าที่อาจไม่ได้รับการสนับสนุนอย่างเป็นทางการ
 
-3. เมื่อ Install ทำงานเสร็จสิ้นจะพบกับหน้านี้ และกด Enter<br/>
+3. เมื่อ Install ทำงานเสร็จสิ้นจะพบกับหน้านี้ และกด Enter<br/><br/>
 ![alt text](./images/esxi-booting.png)<br/><br/>
 ![alt text](./images/esxi-setup1.png)
 
 4. จากนั้นกด F11 เพือยอมรับ EULA<br/>
 ![alt text](./images/esxi-eula.png)
 
-5. รอ Scan หา Media สำหรับใช้ติดตั้ง เมื่อ Scan เสร็จกด Enter เพื่อเลือก Media นั้น ๆ และไปต่อ<br/>
+5. รอ Scan หา Media สำหรับใช้ติดตั้ง เมื่อ Scan เสร็จกด Enter เพื่อเลือก Media นั้น ๆ และไปต่อ<br/><br/>
 ![alt text](./images/esxi-mediascan.png)<br/><br/>
 ![alt text](./images/esxi-mediaselect.png)
 
@@ -116,7 +116,7 @@
         - ตัวพิมพ์เล็ก (abc...)
         - ตัวเลข (123...)
         - ตัวอักษรพิเศษ (!@#$%...)
-<br/>
+<br/><br/>
 
 ![alt text](./images/esxi-password.png)
 
@@ -124,41 +124,41 @@
 > หากลืมรหัสผ่านนี้จะไม่สามารถใช้งาน ESXi ได้
 
 
-8. จากนั้นทำการยืนยันการติดตั้ง ด้วยการกด F11 <br/>
+8. จากนั้นทำการยืนยันการติดตั้ง ด้วยการกด F11 <br/><br/>
 ![alt text](./images/esxi-confirm.png)<br/><br/>
 ![alt text](./images/esxi-install.png)
 
-9. สุดท้ายทำการกด Enter เพื่อ Reboot และเริ่มใช้งาน<br/>
+9. สุดท้ายทำการกด Enter เพื่อ Reboot และเริ่มใช้งาน<br/><br/>
 ![alt text](./images/esxi-reboot.png)
 
-10. ถ้าทุกอย่างสมบูรณ์ จะพบกับหน้านี้<br/>
+10. ถ้าทุกอย่างสมบูรณ์ จะพบกับหน้านี้<br/><br/>
 ![alt text](./images/esxi-finish.png)
 
 ## Using ESXi - ใช้งาน ESXi
-1. นำ IP Address ที่ปรากฏในหน้าของ VM Console ไปใส่ใน Browser และใส่รหัส root ที่ได้กรอกไว้ก่อนหน้า โดย Username: `root`<br/>
+1. นำ IP Address ที่ปรากฏในหน้าของ VM Console ไปใส่ใน Browser และใส่รหัส root ที่ได้กรอกไว้ก่อนหน้า โดย Username: `root`<br/><br/>
 ![alt text](./images/esxi-weblogin.png)
 
-2. เมือ Login ครั้งแรก นำตัวเลือก Join the VMware Customer Experience Improvement Program **ออก** และกด OK
+2. เมือ Login ครั้งแรก นำตัวเลือก Join the VMware Customer Experience Improvement Program **ออก** และกด OK<br/><br/>
 ![alt text](./images/esxi-donotjoin.png)
 
-3. เริ่มใช้งานได้เลย
+3. เริ่มใช้งานได้เลย<br/><br/>
 ![alt text](./images/esxi-welcome.png)
 
-4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/>
+4. อัพโหลด ISO สำหรับติดตั้ง OS ต่าง ๆ ได้ด้วยการไปที่<br/><br/>
 `Storage > datastore1 > Datastore Browser` แล้วเลือก `Upload`
 ![alt text](./images/esxi-store.png)<br/><br/>
 ![alt text](./images/esxi-datastorebrowser.png)
 
-5. สร้าง Virtual Machine ใหม่ ด้วยการกด `Create / Register VM`<br/>
+5. สร้าง Virtual Machine ใหม่ ด้วยการกด `Create / Register VM`<br/><br/>
 ![alt text](./images/esxi-vmregister.png)
 
-6. ตั้งชื่อ Virtual Machine และเลือก OS ที่ใช้<br/>
+6. ตั้งชื่อ Virtual Machine และเลือก OS ที่ใช้<br/><br/>
 ![alt text](./images/esxi-create2.png)
 
-7. เลือก Datastore ที่ต้องการใช้จัดเก็บ Virtual Machine นั้น ๆ<br/>
+7. เลือก Datastore ที่ต้องการใช้จัดเก็บ Virtual Machine นั้น ๆ<br/><br/>
 ![alt text](./images/esxi-create3.png)
 
-8. ปรับค่า Virtual Machine เช่นให้ CPU, RAM หรือ Storage เพิ่ม<br/>
+8. ปรับค่า Virtual Machine เช่นให้ CPU, RAM หรือ Storage เพิ่ม<br/><br/>
 ![alt text](./images/esxi-create4.png)
 
 9. ทำการเพิ่ม ISO สำหรับติดตั้ง OS ของ Virtual Machine โดยการเปลี่ยนจาก `Host device` เป็น `Datastore ISO file` และเลือก ISO ที่ได้ทำการอัพโหลดจากขั้นตอนที่ 4
@@ -169,14 +169,14 @@
 > [!IMPORTANT]
 > อย่าลืมเลือก ✅ Connect และ ✅ Connect at power on ด้วย
 
-10. ตรวจสอบและยืนยันการตั้งค่า<br/>
+10. ตรวจสอบและยืนยันการตั้งค่า<br/><br/>
 ![alt text](./images/esxi-create5.png)
 
-11. Virtual Machine ได้ถูกสร้างขึ้นสำเร็จแล้ว<br/>
+11. Virtual Machine ได้ถูกสร้างขึ้นสำเร็จแล้ว<br/><br/>
 ![alt text](./images/esxi-create6.png)
 
-12. กด Power On เพื่อเริ่ม Virtual Machine<br/>
+12. กด Power On เพื่อเริ่ม Virtual Machine<br/><br/>
 ![alt text](./images/esxi-create7.png)
 
-13. จากนั้นจะมี Pop-up สำหรับ Remote Console ขึ้นมา และสามารถเริ่มการติดตั้งได้เลย<br/>
+13. จากนั้นจะมี Pop-up สำหรับ Remote Console ขึ้นมา และสามารถเริ่มการติดตั้งได้เลย<br/><br/>
 ![alt text](./images/esxi-create8.png)
