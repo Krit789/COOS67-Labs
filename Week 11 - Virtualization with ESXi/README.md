@@ -38,19 +38,26 @@
     - [![](./images/icons/fusion.png)&nbsp;&nbsp;Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
     - **ตอนเปิดใช้งานครั้งแรกอย่าลืมเลือก**<br/>✅ Use VMware Workstation 17 for Personal Use สำหรับ Windows/Linux<br/>✅ I want to license VMware Fusion 13 Pro for Personal use. สำหรับ macOS
 - ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด ![](./images/icons/msinfo.png)&nbsp;`msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
-<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>✨ให้ใช้ [&nbsp;![](./images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
+<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✨ให้ใช้ [&nbsp;![](./images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
+
 - **หากต้องการปิดเองแบบ Manual ให้ปิดสิ่งเหล่านี้**
-  - Windows Features
-    - Hyper-V
-    - Virtual Machine Platform
-    - Windows Hypervisor Platform
-    - Windows Sandbox
-    - Windows Subsystem for Linux
-  - Widows Security
+  - ![](./images/icons/winfeat.png)&nbsp;**Windows Features**
+    - ![](./images/icons/winfeatfolder.png)&nbsp;Hyper-V
+    - ![](./images/icons/winfeatfolder.png)&nbsp;Virtual Machine Platform
+    - ![](./images/icons/winfeatfolder.png)&nbsp;Windows Hypervisor Platform
+    - ![](./images/icons/winfeatfolder.png)&nbsp;Windows Sandbox
+    - ![](./images/icons/winfeatfolder.png)&nbsp;Windows Subsystem for Linux
+  - ![](./images/icons/winsec.png)&nbsp;**Windows Security**
     - Core Isolation (Memory Integrity)
-  - Local Group Policy Editor
-    - Computer Configuration > Administrative Templates > System > Device Guard > Turn On Virtualization Based Security แล้วเลือก Disable
-  - CMD: `bcdedit /set hypervisorlaunchtype off`
+  - ![](./images/icons/wingrppol.png)&nbsp;**Local Group Policy Editor**
+    - ![](./images/icons/wingrppolfolder.png)&nbsp;Computer Configuration
+      - ![](./images/icons/wingrppolfolder.png)&nbsp;Administrative Templates
+        - ![](./images/icons/wingrppolfolder.png)&nbsp;System
+          - ![](./images/icons/wingrppolfolder.png)&nbsp;Device Guard
+            - ![](./images/icons/wingrppolitem.png)&nbsp;Turn On Virtualization Based Security แล้วเลือก Disable
+  - ![](./images/icons/wincmd.png)&nbsp;**CMD**: `bcdedit /set hypervisorlaunchtype off`
 
 ## Setup - เตรียมการติดตั้ง
 
