@@ -33,18 +33,29 @@
 
 ## Prerequisite - ข้อกำหนดเบื้องต้น
 - ต้องมี VMware Workstation ติดตั้งอยู่บนเครื่อง หากไม่มีให้ Download และติดตั้งจากที่นี่
-    - [Workstation Pro 17.6.1 for Windows](https://fs-bucket.jarukrit.net/Bootcamp/VMware-workstation-full-17.6.1-24319023.exe)
-    - [Workstation Pro 17.6.1 for Linux](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Workstation-Full-17.6.1-24319023.x86_64.bundle)
-    - [Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
+    - [![](./images/icons/workstation.png)&nbsp;&nbsp;Workstation Pro 17.6.1 for Windows](https://fs-bucket.jarukrit.net/Bootcamp/VMware-workstation-full-17.6.1-24319023.exe)
+    - [![](./images/icons/workstation.png)&nbsp;&nbsp;Workstation Pro 17.6.1 for Linux](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Workstation-Full-17.6.1-24319023.x86_64.bundle)
+    - [![](./images/icons/fusion.png)&nbsp;&nbsp;Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
     - **ตอนเปิดใช้งานครั้งแรกอย่าลืมเลือก**<br/>✅ Use VMware Workstation 17 for Personal Use สำหรับ Windows/Linux<br/>✅ I want to license VMware Fusion 13 Pro for Personal use. สำหรับ macOS
-- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด `msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่<br/>
-<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>ให้ใช้ [Batch Script นี้](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
+- ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด ![](./images/icons/msinfo.png)&nbsp;`msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
+<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>ให้ใช้ [&nbsp;![](./images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
+- **หากต้องการปิดเองแบบ Manual ให้ปิดสิ่งเหล่านี้**
+  - Windows Features
+    - Hyper-V
+    - Virtual Machine Platform
+    - Windows Hypervisor Platform
+    - Windows Sandbox
+    - Windows Subsystem for Linux
+  - Widows Security
+    - Core Isolation (Memory Integrity)
+  - Local Group Policy Editor
+    - Computer Configuration > Administrative Templates > System > Device Guard > Turn On Virtualization Based Security แล้วเลือก Disable
 
 ## Setup - เตรียมการติดตั้ง
 
 1. เริ่มต้นด้วยการ Download ไฟล์ติดตั้ง VMware ESXi โดยสามารถ Download ได้จากที่นี่
-    - **x86_64**: [VMware VMvisor Installer 8.0U3b x86_64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
-    - **ARM64**: [VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso)
+    - **x86_64 - Intel/AMD**: [![](./images/icons/iso.png)VMware VMvisor Installer 8.0U3b x86_64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
+    - **ARM64 - Apple Silicon**: [![](./images/icons/iso.png)VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso) (เวอร์ชั่น Technical Preview อาจจะเจอบัค)
 2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก `New Virtual Machine...`<br/><br/>
 ![alt text](./images/vmware-create.png)
 
@@ -134,7 +145,11 @@
 10. ถ้าทุกอย่างสมบูรณ์ จะพบกับหน้านี้<br/><br/>
 ![alt text](./images/esxi-finish.png)
 
-## Using ESXi - ใช้งาน ESXi
+
+# Section 2: ESXi Basics
+
+## Interacting with Web Console - เข้าใช้งานผ่าน Console
+
 1. นำ IP Address ที่ปรากฏในหน้าของ VM Console ไปใส่ใน Browser และใส่รหัส root ที่ได้กรอกไว้ก่อนหน้า โดย Username: `root`<br/><br/>
 ![alt text](./images/esxi-weblogin.png)
 
