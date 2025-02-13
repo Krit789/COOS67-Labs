@@ -38,7 +38,7 @@
     - [![](./images/icons/fusion.png)&nbsp;&nbsp;Fusion Pro 13.6.1 for macOS](https://fs-bucket.jarukrit.net/Bootcamp/VMware-Fusion-13.6.1-24319021_universal.dmg)
     - **ตอนเปิดใช้งานครั้งแรกอย่าลืมเลือก**<br/>✅ Use VMware Workstation 17 for Personal Use สำหรับ Windows/Linux<br/>✅ I want to license VMware Fusion 13 Pro for Personal use. สำหรับ macOS
 - ตรวจสอบว่าสามารถใช้งาน Nested Virtualization ด้วยการเปิด ![](./images/icons/msinfo.png)&nbsp;`msinfo32` จากสามารถเปิด โดยการค้นหาจาก Start Menu<br/>![alt text](./images/start-msinfo32.png)<br/>จากนั้นตรวจสอบว่า Virtualization-based security เป็น `Not enabled` หรือไม่
-<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>ให้ใช้ [&nbsp;![](./images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
+<br/>![alt text](./images/msinfo32-virt.png)<br/>หากพบว่ายังเป็น `Running`<br/>![alt text](./images/msinfo32-virt-running.png)<br/>✨ให้ใช้ [&nbsp;![](./images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOffHyperV.bat)ในการ Disable โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
 - **หากต้องการปิดเองแบบ Manual ให้ปิดสิ่งเหล่านี้**
   - Windows Features
     - Hyper-V
@@ -50,6 +50,7 @@
     - Core Isolation (Memory Integrity)
   - Local Group Policy Editor
     - Computer Configuration > Administrative Templates > System > Device Guard > Turn On Virtualization Based Security แล้วเลือก Disable
+  - CMD: `bcdedit /set hypervisorlaunchtype off`
 
 ## Setup - เตรียมการติดตั้ง
 
