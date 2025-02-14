@@ -215,3 +215,21 @@
 > เพื่อประสิทธิภาพการใช้งานที่ดี (เช่น การปรับขนาดหน้าจอได้) ควรติดตั้ง VMware Tools หลังติดตั้ง OS เสร็จสิ้น
 > - [วิธีสำหรับ Windows Guest](https://youtu.be/njK5Em1H5Po?feature=shared&t=25)
 > - [วิธีสำหรับ Linux Guest](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/tools/11-1-0/vmware-tools-administration-11-1-0/installing-vmware-tools/install-open-vm-tools.html)
+
+# Section 3: VM Snapshot
+Snapshots ใน ESXi คือการจับภาพสถานะของ VM ณ เวลาใดเวลาหนึ่ง เพื่อให้สามารถย้อนกลับ (revert) ไปยังสถานะนั้นได้อย่างรวดเร็ว เหมาะสำหรับการทดสอบ, การพัฒนา, หรือการ rollback ชั่วคราว, *แต่ไม่ใช่* การสำรองข้อมูล (backup) ที่สมบูรณ์
+
+
+
+1. สามารถทำ Snapshot ได้ด้วยการคลิกขวาที่ชื่อ VM และกด Take Snapshot<br/><br/>
+![alt text](./images/esxi-snapshot.png)
+
+2. ทำการตั้งชื่อและตั้งรายละเอียดประกอบ Snapshot นั้น<br/><br/>
+![alt text](./images/esxi-snapshot-2.png)
+
+3. คลิกขวาและกด Manage Snapshot เพื่อตรวจสอบ Snapshot ที่มีใน VM นั้น ๆ<br/><br/>
+![alt text](./images/esxi-snapshot-3.png)<br/><br/>
+![alt text](./images/esxi-snapshot-4.png)
+
+4. เลือก Snapshot ที่ต้องการ Restore และกด Restore Snapshot<br/><br/>
+![alt text](./images/esxi-snapshot-5.png)
