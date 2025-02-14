@@ -102,6 +102,9 @@
 1. ทำการ Start Virtual Machine และจะพบกับหน้านี้<br/><br/>
 ![alt text](./images/esxi-boot.png)
 
+> [!IMPORTANT]
+> เน้นย้ำว่าต้องเพิ่ม Boot Options `Shift + O` ไม่งั้นที่เก็บจะไม่พอสร้าง VM เพิ่มครับ
+
 2.  กด `Shift + O` เพื่อเพิ่ม Boot options และใส่ Boot Option ดังนี้ และกด Enter:
 
     ```
