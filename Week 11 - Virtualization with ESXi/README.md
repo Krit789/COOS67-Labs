@@ -214,6 +214,8 @@
 13. จากนั้นจะมี Pop-up สำหรับ Remote Console ขึ้นมา และสามารถเริ่มการติดตั้งได้เลย<br/><br/>
 ![alt text](./images/esxi-create8.png)
 
+## 14. หาก Download ISO Windows 11 จากด้านบน กรุณาใช้ Windows 11 IoT Enterprise Edition นะครับ
+
 > [!TIP]
 > เพื่อประสิทธิภาพการใช้งานที่ดี (เช่น การปรับขนาดหน้าจอได้) ควรติดตั้ง VMware Tools หลังติดตั้ง OS เสร็จสิ้น
 > - [วิธีสำหรับ Windows Guest](https://youtu.be/njK5Em1H5Po?feature=shared&t=25)
