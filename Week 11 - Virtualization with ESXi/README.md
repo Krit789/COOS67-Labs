@@ -63,7 +63,7 @@
 
 1. เริ่มต้นด้วยการ Download ไฟล์ติดตั้ง VMware ESXi โดยสามารถ Download ได้จากที่นี่
     - **x86_64 - Intel/AMD**: [![](./images/icons/iso.png)VMware VMvisor Installer 8.0U3b x86_64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3b-24280767.x86_64.iso)
-    - **ARM64 - Apple Silicon**: [![](./images/icons/iso.png)VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso) (เวอร์ชั่น Technical Preview อาจจะเจอบัค)
+    - ~~**ARM64 - Apple Silicon**: [![](./images/icons/iso.png)VMware VMvisor Installer 8.0U3c AArch64.iso](https://fs-bucket.jarukrit.net/ESXi/VMware-VMvisor-Installer-8.0U3c-24449057.aarch64.iso) (เวอร์ชั่น Technical Preview อาจจะเจอบัค)~~ ใช้งานไม่ได้บน Mac
 2. สร้าง Virtual Machine โดยใช้ VMware Workstation เลือก ![](./images/icons/addvm.png)&nbsp;`New Virtual Machine...`<br/><br/>
 ![alt text](./images/vmware-create.png)
 
