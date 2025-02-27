@@ -307,12 +307,12 @@ docker rm [container-name หรือ container-id]
 Docker Mount Volume มี 3 ประเภทหลัก:
 
 1. **Volumes (Named Volumes)**: Docker จัดการทั้งหมด, เหมาะเก็บข้อมูลถาวร, แชร์ข้าม containers ง่าย
-   ```
+   ```bash
    docker run --mount type=volume,src=<volume-name>,dst=<mount-path>
    docker run --volume <volume-name>:<mount-path>
    ```
 2. **Bind mounts**: เชื่อม directory/file จาก Host ตรงๆ เข้า Container, เหมาะพัฒนา, แต่ portability น้อยกว่า
-   ```
+   ```bash
    docker run --mount type=bind,src=<host-path>,dst=<container-path>
    docker run --volume <host-path>:<container-path>
    ```
@@ -320,7 +320,7 @@ Docker Mount Volume มี 3 ประเภทหลัก:
 
 #### โดยใน Lab นีี้เราจะใช้ Bind Mount ในการ Mount ดังนี้
 
-```
+```bash
 docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
 ```
 
@@ -328,6 +328,7 @@ docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
 - `[path-WORKDIR]` คือตำแหน่งที่เราต้องการ mount ไปที่ Container ซึงจากที่เรากำหนดไว้ใน Dockerfile ก่อนหน้า จะเป็น `/app`
 
 ![](./image/mount-volume.png/)
+
 
 > [!IMPORTANT]
 > ต้องใช้ PowerShell เท่านั้น Command Prompt จะไม่สามารถใช้งานไม่ได้ และในบางกรณีคำสั้งที่ใช้ `$(<command สักอย่าง>)` จะใช้ไม่ได้ ให้ลอง `${<command สักอย่าง>}` แทน
@@ -339,7 +340,7 @@ docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
 <br/>
 เข้าไปทำงานใน Container ด้วย shell `sh`
 
-```
+```bash
 docker exec -it [container-name หรือ container id] /bin/sh
 ```
 
@@ -411,7 +412,7 @@ docker rm $(docker ps -aq)
 
   ตัวอย่างที่ใช้จริงใน Production: เว็บ [ctf.it.kmitl.ac.th](https://ctf.it.kmitl.ac.th) ใช้ [Nuxt 3](https://nuxt.com/) (ตัดข้อมูล Sensitive ออก)
 
-  ```
+  ```dockerfile
   FROM node:22-alpine AS builder
 
   ENV PNPM_HOME="/pnpm"
