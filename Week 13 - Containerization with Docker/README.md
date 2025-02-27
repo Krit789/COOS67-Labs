@@ -239,11 +239,11 @@ docker run --name [name] [image-name]
 ![](./image/chill-guy.png/)
 
 ### 14. Mount Volume
-`
-docker run -v $(pwd):[path-WORKDIR] -v $(pwd):[path-WORKDIR]/node_modules
-`
+```
+docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
+```
 
-`$(pwd)` คือคำสั่งที่ใช้ในการแสดงตำแหน่งปัจจุบันของไฟล์ หรือ Working Directory ของเรา
+`$(pwd)` หรือ `${pwd}` คือคำสั่งที่ใช้ในการแสดงตำแหน่งปัจจุบันของไฟล์ หรือ Working Directory ของเรา
 
 `[path-WORKDIR]` คือตำแหน่งที่เราต้องการ mount ไปที่ Container
 
@@ -265,7 +265,7 @@ npm i --save-dev nodemon
 ```
 package.json
 ```json
-"dev": "nodemon index.js"
+"dev": "nodemon -L"
 ```
 
 ![](./image/install-nodemon.png/)
@@ -284,7 +284,7 @@ docker stop $(docker ps -aq)
 docker rm $(docker ps -aq)
 ```
 
-### 20. Run Docker Container with myapp:v3
+### 20. Run Docker Container with myapp:v3 แล้วลองแก้ไขไฟล์ index.js แล้วสักเกตุการเปลี่ยนแปลงที่ nodemon ใน docker container
 ![](./image/run-myapp-v3.png/)
 
 ![](./image/chill-guy-!!!!!!.png/)
