@@ -86,7 +86,7 @@ npm -v
 
 ### 1. สร้างไฟล์ package.json
 
-ด้วยคำสั้ง `npm init` และกด Enter เพื่อยืนยันชื่อและข้อมูลต่าง ๆ
+ด้วยคำสั่ง `npm init` และกด Enter เพื่อยืนยันชื่อและข้อมูลต่าง ๆ
 
 ```bash
 npm init
@@ -170,7 +170,7 @@ npm run start
 
 ![](./image/create-dockerfile.png/)
 
-#### คำสั้งใน Dockerfile นี่คืออะไร
+#### คำสั่งใน Dockerfile นี่คืออะไร
 
 - **`FROM node:lts-alpin`**: **ตั้งต้นจาก Base Image:** ใช้ Docker Image `node:lts-alpin` เป็น Base ซึ่งเป็น Image ที่มี Node.js (เวอร์ชัน LTS - Long Term Support) และ npm ติดตั้งไว้แล้ว และใช้ระบบปฏิบัติการ Alpine Linux ที่มีขนาดเล็ก
 - **`WORKDIR /app`**: **กำหนด Working Directory:** เปลี่ยน Directory ทำงานปัจจุบันภายใน Container ไปที่ `/app` คำสั่งต่อจากนี้จะทำงานใน Directory นี้ (เปรียบเสมือนการ `cd /app`)
@@ -197,7 +197,7 @@ node_modules/
 > หากพบ Error แบบนี้ กรุณาตรวจสอบว่าเปิด Docker Desktop หรือยัง แล้วลองใหม่ <br/><br/>
 > ![alt text](./image/check-docker-engine.png)
 
-ใช้คำสั้งนี่เพื่อทำการ build docker image แรกของคุณ<br/><br/>
+ใช้คำสั่งนี่เพื่อทำการ build docker image แรกของคุณ<br/><br/>
 ![](./image/build-docker-image.png/)
 
 ```
@@ -246,7 +246,7 @@ docker run --name [name] [image-name]
 ตัวอย่างภาพนี้คือการรัน Webserver สอง Container ที่ใช้ Port เดียวกันคือ 80 (Container Port) แต่ทำการ Publish Port ต่างกันก็คือ 8080 และ 8070 (Host Port)<br/><br/>
 ![](https://k21academy.com/wp-content/uploads/2020/11/portmapping.drawio.png)
 
-โดยคำสั้งนี้บอกให้เปิดพอร์ต 3000 ในเครื่องเรา และเชื่อมกับพอร์ต 3000 ใน container
+โดยคำสั่งนี้บอกให้เปิดพอร์ต 3000 ในเครื่องเรา และเชื่อมกับพอร์ต 3000 ใน container
 
 ```
 docker run -p [host-port]:[container-port] [image-name-with-tag]
@@ -331,7 +331,7 @@ docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
 
 
 > [!IMPORTANT]
-> ต้องใช้ PowerShell เท่านั้น Command Prompt จะไม่สามารถใช้งานไม่ได้ และในบางกรณีคำสั้งที่ใช้ `$(<command สักอย่าง>)` จะใช้ไม่ได้ ให้ลอง `${<command สักอย่าง>}` แทน
+> ต้องใช้ PowerShell เท่านั้น Command Prompt จะไม่สามารถใช้งานไม่ได้ และในบางกรณีคำสั่งที่ใช้ `$(<command สักอย่าง>)` จะใช้ไม่ได้ ให้ลอง `${<command สักอย่าง>}` แทน
 
 ### 15. คำสั่งที่ใช้ในการเข้าไปทำงานใน Container (`docker exec`)
 
