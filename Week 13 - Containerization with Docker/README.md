@@ -1,4 +1,4 @@
-# Computer Organization and Operating System Lab #12
+# Computer Organization and Operating System Lab #13
 
 # Section 0: Introduction
 
@@ -17,13 +17,15 @@
 ### &nbsp;&nbsp;&nbsp;✨ให้ใช้ [&nbsp;![](../Week%2011%20-%20Virtualization%20with%20ESXi/images/icons/bat.png) Batch Script นี้&nbsp;](./scripts/TurnOnHyperV.bat)ในการ เปิด WSL 2 และ Hyper-V โดยจะต้อง Reboot เครื่องเมื่อทำการใช้งาน Script เสร็จแล้ว
 
 
-## Install Docker Desktop
+## ติดตั้ง Docker Desktop
 - [Docker Desktop for Window-x86_64](https://docs.docker.com/desktop/setup/install/windows-install/)
 - [Docker Desktop for MacOS](https://docs.docker.com/desktop/setup/install/mac-install/)
 - [Docker Desktop for Linux](https://docs.docker.com/desktop/setup/install/linux/)
 
-## Install Node.js
-- [Node.js](https://nodejs.org/en/download)
+## ติดตั้ง Node.js เวอร์ชั่น LTS 
+- [Node.js](https://nodejs.org/en/download)<br/>
+<br/>
+![alt text](./image/node-setup.png)
 
 ## Set Up 
 
@@ -60,20 +62,20 @@
 
 ## Section 2: Docker Basics
 
-### 1. Create package.json
+### 1. สร้างไฟล์ package.json
 ด้วยคำสั้ง `npm init` และกด Enter เพื่อยืนยันชื่อและข้อมูลต่าง ๆ
 ```bash
 npm init
 ```
-![](image.png)
+เมื่อทำเสร็จแล้ว จะได้ไฟล์ `package.json` ดังภาพ<br/><br/>
 ![](./image/create-package-json.png)
 
-### 2. Install Express.js เวอร์ชั่น 4 และ EJS
+### 2. ติดตั้ง Express.js เวอร์ชั่น 4 และ EJS
 ```bash
-npm i express@4^ ejs  
+npm i express@^4 ejs
 ```
 
-### 3. สร้าง index.js และ ejs views
+### 3. สร้างไฟล์ index.js และ ejs views
 ### โดยมีโครงสร้าง Folder ดังนี้<br/>
 ![alt text](./image/dir-structure.png)
 
@@ -99,6 +101,7 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
 ```
+
 #### dynamic.ejs
 ```html
 <!DOCTYPE html>
@@ -116,34 +119,40 @@ app.listen(port, () => {
 </html>
 ```
 
-### 4. Run Node.js Application
+### 4. เริ่มใช้งาน Node.js Application
+โดยเบื่องต้นจะใช้คำสั่ง `node` ตามด้วยชื่อไฟล์ JavaScript ที่ต้องการเรียกใช้งาน
 ```bash
 node index.js
 ```
+ถ้าเรียกใช้สำเร็จจะได้ Console Output แบบนี้ <br/><br/>
 ![](./image/run-node-js.png/)
 
-#### index page
+ลองทำการเข้าเว็บไซต์ที่เราสร้างขึ้นมา ด้วยการเปิด [http://localhost:3000](http://localhost:3000) ซึ่งจะได้หน้า index ดังรูป
+
+#### [index page](http://localhost:3000) 
 ![](./image/hello-world.png/)
 
-#### dynamic page
+#### [dynamic page](http://localhost:3000/dynamic)
 ![alt text](./image/dynamic-page.png)
 
 ### เพิ่ม Script สำหรับ Start App ใน package.json
+`scripts` ใน `package.json` คือส่วนที่กำหนด คำสั่งลัด สำหรับรัน task ต่าง ๆ ในโปรเจกต์ เช่น เริ่มเซิร์ฟเวอร์, dev, build หรือ test ช่วยให้เรียกใช้คำสั่งเหล่านี้ได้ง่ายด้วย `npm run <ชื่อ script>` แทนที่จะพิมพ์คำสั่งยาว ๆ เอง เหมือนเป็น shortcut
 
 ![](./image/add-script.png/)
 
 ### Run Node.js Application ด้วยคำสั่ง NPM
+หยุด Process เก่าด้วยการกด `Ctrl + C` ใน Terminal (ถ้ายังทำงานอยู่) แล้วลองใช้คำสั่งนี้ ผลลัพธ์จะเหมือนคำสั่ง `node index.js`
 ```bash
 npm run start
 ```
 ![img.png](./image/npm-run-start.png)
 
-### 5. สร้าง Dockerfile
+### 5. สร้าง Dockerfile เพื่อเตรียมนำ App เข้า Container
 ![](./image/create-dockerfile.png/)
 
-
-*   **`FROM node:alpine`**: **ตั้งต้นจาก Image พื้นฐาน:**  ใช้ Docker Image `node:alpine` เป็นฐาน ซึ่งเป็น Image ที่มี Node.js และ npm ติดตั้งไว้แล้ว และใช้ระบบปฏิบัติการ Alpine Linux ที่มีขนาดเล็ก
-*   **`WORKDIR /app`**: **กำหนด Working Directory:**  เปลี่ยน Directory ทำงานปัจจุบันภายใน Container ไปที่ `/app`  คำสั่งต่อจากนี้จะทำงานใน Directory นี้
+#### คำสั้งใน Dockerfile นี่คืออะไร
+*   **`FROM node:alpine`**: **ตั้งต้นจาก Base Image:**  ใช้ Docker Image `node:alpine` เป็น Base ซึ่งเป็น Image ที่มี Node.js และ npm ติดตั้งไว้แล้ว และใช้ระบบปฏิบัติการ Alpine Linux ที่มีขนาดเล็ก
+*   **`WORKDIR /app`**: **กำหนด Working Directory:**  เปลี่ยน Directory ทำงานปัจจุบันภายใน Container ไปที่ `/app`  คำสั่งต่อจากนี้จะทำงานใน Directory นี้ (เปรียบเสมือนการ `cd /app`)
 *   **`COPY . .`**: **คัดลอกไฟล์ทั้งหมด:**  คัดลอกไฟล์และโฟลเดอร์ทั้งหมดจาก **current directory** (ที่อยู่ของ Dockerfile) บนเครื่อง Host ไปยัง **`/app`** directory ใน Container
 *   **`RUN npm install`**: **ติดตั้ง Dependencies:**  สั่งรันคำสั่ง `npm install` ภายใน Container เพื่อติดตั้ง Node.js dependencies ที่ระบุไว้ใน `package.json` ของโปรเจกต์
 *   **`EXPOSE 3000`**: **เปิด Port:**  ประกาศว่า Container จะ Listen บน Port `3000` (เป็นการบอก Docker เฉยๆ ไม่ได้ Publish Port จริงๆ)
@@ -156,6 +165,7 @@ npm run start
 ![](./image/create-dockerignore.png/)
 
 ทำงานเหมือน `.gitignore` โดยในที่นี่ใส่
+#### .dockerignore
 ```
 node_modules/
 ```
@@ -169,19 +179,18 @@ node_modules/
 
 
 ![](./image/build-docker-image.png/)
-`
+```
 docker build -t [image-name]:[tag-name] .
-`
+```
 
 สร้าง Docker image จาก Dockerfile
 
 `-t myapp:v1` ตั้งชื่อ image ว่า myapp และเวอร์ชัน v1
 
-`.` บอกให้ใช้ไฟล์ในโฟลเดอร์ปัจจุบัน (ที่มี Dockerfile)
-
+`.` บอกให้ใช้ไฟล์ในโฟลเดอร์ปัจจุบัน (ที่มี Dockerfile)<br/><br/>
 ![](./image/build-docker-image2.png/)
 
-เช็คว่า Image ถูกสร้างขึ้นมาหรือยัง
+เช็คว่า Image ถูกสร้างขึ้นมาหรือยัง<br/><br/>
 ![](./image/docker-image.png/)
 
 #### or
@@ -263,6 +272,9 @@ docker run -v ${pwd}:[path-WORKDIR] -v ${pwd}:[path-WORKDIR]/node_modules
 ```bash
 npm i --save-dev nodemon
 ```
+> [!IMPORTANT]
+> อย่าลืม Argument `-L` หรือ `--legacy-watch` เพื่อใช้เทคนิค [Chokidar's polling](https://github.com/paulmillr/chokidar) ให้สามารถตรวจจับการเปลี่ยนแปลงใน Mounted Volume ได้
+
 package.json
 ```json
 "dev": "nodemon -L"
