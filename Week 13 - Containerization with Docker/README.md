@@ -355,7 +355,7 @@ docker run --name [name] [image-name]
 
 ![](./image/stop-container.png/)
 
-`docker stop [container-name]` หยุด Container ที่กำลังทำงานอยู่
+`docker stop [container-name หรือ container id]` หยุด Container ที่กำลังทำงานอยู่
 
 ### 12. Remove Container
 
@@ -383,12 +383,21 @@ docker run -v $(pwd):[path-WORKDIR] -v $(pwd):[path-WORKDIR]/node_modules
 > [!IMPORTANT]
 > ต้องใช้ PowerShell เท่านั้น Command Prompt ใช้งานไม่ได้
 
-### 15. คำสั่งที่ใช้ในการเข้าไปทำงานใน Container
+### 15. คำสั่งที่ใช้ในการเข้าไปทำงานใน Container (`docker exec`)
+สามารถสร้าง shell ใน Continer แบบ Interactive `-it` เพื่อไปแก้ไขหรือทำงานใน Container โดยตรง<br/>
 ![](./image/enter-container.png/)
+<br/>
+`docker exec -it [container-name หรือ container id] sh` เข้าไปทำงานใน Container ด้วย shell `sh`
 
-`docker exec -it [container-name] sh` เข้าไปทำงานใน Container ด้วย sh
+### 16. ทำการ install nodemon and add script to package.json
+```bash
+npm i --save-dev nodemon
+```
+package.json
+```json
+"dev": "nodemon index.js"
+```
 
-### 16. แก้ insatll nodemon and add script to package.json (ไม่แน่ใจว่า ทำไม่ได้เพราะมันไม่ได้อยู่ใน devdependencies) หรือ คอมเรา
 ![](./image/install-nodemon.png/)
 
 ### 17. สร้าง Dockerfile.dev
