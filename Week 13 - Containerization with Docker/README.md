@@ -337,7 +337,7 @@ docker rm $(docker ps -aq)
 ![](./image/chill-guy-!!!!!!.png/)
 
 #### หากทำการ Run แล้ว nodemon crash แบบนี้
-![alt text](./image/docker-improper-mount.png)
+![alt text](./image/docker-improper-mount.png)<br/>
 ให้ตรวจสอบว่าทำการ Mount Volume หรือยัง โดยจากภาพนี้สังเกตุว่ายังไม่ได้ทำการ Mount
 ## Further Readings
 - **Multi-stage Build**<br/>
