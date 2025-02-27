@@ -272,12 +272,13 @@ npm run start
 ![](./image/create-dockerfile.png/)
 
 
-* `FROM node:alpine`: ใช้ image พื้นฐาน `node:alpine` ที่มี Node.js และ npm พร้อมใช้งาน (ขนาดเล็ก)
-* `WORKDIR /app`: กำหนดโฟลเดอร์ `/app` เป็นที่ทำงานหลักใน container
-* `COPY ... .`: คัดลอกไฟล์ `index.js`, โฟลเดอร์ `views`, และ `package.json` จากเครื่อง host ไปที่โฟลเดอร์ `/app` ใน container
-* `RUN npm install`: ติดตั้ง dependencies ของ Node.js จาก `package.json` ภายใน container (ทำระหว่าง build image)
-* `EXPOSE 3000`: ประกาศว่า container จะเปิด port 3000 (เป็นการประกาศเฉย ๆ ไม่ได้เปิดจริง ต้องทำการ Publish Port เพื่อใช้งานจริง)
-* `CMD ["npm", "run", "start"]`: สั่งให้รันคำสั่ง `npm run start` เพื่อเริ่มแอปพลิเคชัน Node.js เมื่อ container เริ่มทำงาน
+*   **`FROM node:alpine`**: **ตั้งต้นจาก Image พื้นฐาน:**  ใช้ Docker Image `node:alpine` เป็นฐาน ซึ่งเป็น Image ที่มี Node.js และ npm ติดตั้งไว้แล้ว และใช้ระบบปฏิบัติการ Alpine Linux ที่มีขนาดเล็ก
+*   **`WORKDIR /app`**: **กำหนด Working Directory:**  เปลี่ยน Directory ทำงานปัจจุบันภายใน Container ไปที่ `/app`  คำสั่งต่อจากนี้จะทำงานใน Directory นี้
+*   **`COPY . .`**: **คัดลอกไฟล์ทั้งหมด:**  คัดลอกไฟล์และโฟลเดอร์ทั้งหมดจาก **current directory** (ที่อยู่ของ Dockerfile) บนเครื่อง Host ไปยัง **`/app`** directory ใน Container
+*   **`RUN npm install`**: **ติดตั้ง Dependencies:**  สั่งรันคำสั่ง `npm install` ภายใน Container เพื่อติดตั้ง Node.js dependencies ที่ระบุไว้ใน `package.json` ของโปรเจกต์
+*   **`EXPOSE 3000`**: **เปิด Port:**  ประกาศว่า Container จะ Listen บน Port `3000` (เป็นการบอก Docker เฉยๆ ไม่ได้ Publish Port จริงๆ)
+*   **`CMD ["npm", "run", "start"]`**: **คำสั่งเริ่มต้น Container:**  กำหนดคำสั่งที่จะรันเมื่อ Container เริ่มทำงาน ในที่นี้คือ `npm run start` ซึ่งมักจะใช้เพื่อสั่งรันแอปพลิเคชัน Node.js (โดย Script `start` ต้องถูกกำหนดไว้ใน `package.json`)
+
 
 
 ### 6. Create .dockerignore
@@ -333,9 +334,10 @@ docker run --name [name] [image-name]
 
 ![](./image/expose-port.png/)
 
-![](./image/hello-world.png/)
+![](./image/hello-world.png/)<br/>
+![alt text](./image/hello-ejs.png)
 
-`docker run -p [host-port]:[container-port] [image-name-with-tag]` บอกให้เปิดพอร์ต 4000 ในเครื่องเรา และเชื่อมกับพอร์ต 3000 ในคอนเทนเนอร์
+`docker run -p [host-port]:[container-port] [image-name-with-tag]` บอกให้เปิดพอร์ต 3000 ในเครื่องเรา และเชื่อมกับพอร์ต 3000 ในคอนเทนเนอร์
 
 ### 10. แสดง Container ที่กำลังทำงานอยู่
 
@@ -376,7 +378,10 @@ docker run -v $(pwd):[path-WORKDIR] -v $(pwd):[path-WORKDIR]/node_modules
 `[path-WORKDIR]` คือตำแหน่งที่เราต้องการ mount ไปที่ Container
 
 ![](./image/mount-volume.png/)
-***Command Prompt อาจจะไม่ไม่ได้***
+
+
+> [!IMPORTANT]
+> ต้องใช้ PowerShell เท่านั้น Command Prompt ใช้งานไม่ได้
 
 ### 15. คำสั่งที่ใช้ในการเข้าไปทำงานใน Container
 ![](./image/enter-container.png/)
