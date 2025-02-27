@@ -84,6 +84,8 @@ npm -v
 
 ## Section 2: Docker Basics
 
+### 0. สร้าง Folder เปล่า ๆ สำหรับทำ Lab นี้ แล้วเข้าไปใน Folder นั้น อาจจะใช้ VSCode หรือ IDE ที่ถนัด
+
 ### 1. สร้างไฟล์ package.json
 
 ด้วยคำสั่ง `npm init` และกด Enter เพื่อยืนยันชื่อและข้อมูลต่าง ๆ
