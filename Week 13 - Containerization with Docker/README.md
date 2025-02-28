@@ -169,6 +169,7 @@ npm run start
 ![img.png](./image/npm-run-start.png)
 
 ### 5. สร้าง Dockerfile เพื่อเตรียมนำ App เข้า Container
+สร้างไฟล์ชื่อว่า `Dockerfile` ขึ้นมาใน Project และระบุคำสั่งดังนี้<br/><br/>
 
 ![](./image/create-dockerfile.png/)
 
@@ -364,6 +365,7 @@ package.json
 ![](./image/install-nodemon.png/)
 
 ### 17. สร้าง Dockerfile.dev
+สร้างไฟล์ชื่อว่า `Dockerfile.dev` ขึ้นมาใน Project<br/>
 
 Dockerfile นี้สำหรับ **dev**, เน้น build image เร็วและ **hot-reloading** <br/>
 
