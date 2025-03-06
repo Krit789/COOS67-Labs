@@ -5,29 +5,12 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000/tcp"
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      - PORT=3000
-      - NODE_ENV=production
-      - DB_HOST=db
-      - DB_USER=root
-      - DB_PASSWORD=changeme
-      - DB_NAME=task_manager
-  db:
-    container_name: coos_task_db
-    image: mariadb:lts
-    restart: unless-stopped
-    expose:
-      - "3306"
+    # depends_on:
+      # Add dependencies here (refer to lab sheet)
     volumes:
-      - ./mariadb:/var/lib/mysql
+      - ./:/app
     environment:
-      MARIADB_ROOT_PASSWORD: changeme
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-      start_period: 10s
-      interval: 10s
-      timeout: 5s
-      retries: 3
+      TZ: Asia/Bangkok
+      # Add more environment variables here (refer to lab sheet)
+  # db: Add the rest of the service here (Also refer to lab sheet)
+  # nginx: Add the rest of the service here (Also refer to lab sheet)
