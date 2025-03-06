@@ -3,7 +3,9 @@
 # Section 0: Introduction
 
 ## Docker Compose คืออะไร?
-![docker-compose.png](./image/docker-compose.png)
+<p align="center">
+<img src="./image/docker-compose.png" width="480px" alt="What is docker compose?" />
+</p>
 
 **Docker Compose** เป็นเครื่องมือที่ช่วยให้การจัดการแอปพลิเคชันแบบมัลติคอนเทนเนอร์เป็นเรื่องง่ายและมีประสิทธิภาพมากขึ้น  แทนที่จะต้องใช้คำสั่ง `docker run` หลายครั้งเพื่อเริ่มต้นแต่ละคอนเทนเนอร์  Docker Compose ช่วยให้เราสามารถกำหนดค่าบริการ (service) ต่างๆ ที่ประกอบกันเป็นแอปพลิเคชันของเราได้ในไฟล์เดียวที่เรียกว่า `docker-compose.yaml`  จากนั้นเราสามารถใช้คำสั่ง `docker compose up` เพียงครั้งเดียวเพื่อเริ่มต้นและรันทุกคอนเทนเนอร์ที่กำหนดไว้พร้อมกันได้
 
@@ -128,17 +130,16 @@ services:
 [https://docs.docker.com/reference/compose-file/](https://docs.docker.com/reference/compose-file/)
 
 
-# Section 2: How to Git Clone
+# Section 1: Preparation
 
-ทำการ git clone เพื่อดึง folder ที่จะใช้ใน lab  คือ folder /LAB-14
+ตรวจสอบว่าติดตั้ง Docker ตาม Lab Week
+
+# Section 2: Let's Begin!
+
+ทำการ git clone เพื่อดึง folder ที่จะใช้ใน lab  คือ folder /demo-app ใน Week 14 Docker Compose
 
 ```git
 git clone https://github.com/Krit789/COOS67-Labs.git
-```
-
-
-```
-cd LAB-14
 ```
 
 # Section 3: Docker Compose

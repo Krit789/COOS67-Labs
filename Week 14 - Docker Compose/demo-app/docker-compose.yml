@@ -6,7 +6,8 @@ services:
     ports:
       - "3000:3000/tcp"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - PORT=3000
       - NODE_ENV=production
@@ -24,3 +25,9 @@ services:
       - ./mariadb:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: changeme
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
