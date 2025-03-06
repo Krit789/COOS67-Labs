@@ -28,3 +28,4 @@ logs
 # Docker volumes
 data/
 mariadb/
+nginx/
