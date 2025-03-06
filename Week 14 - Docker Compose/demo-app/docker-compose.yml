@@ -7,8 +7,6 @@ services:
       - "3000:3000/tcp"
     # depends_on:
       # Add dependencies here (refer to lab sheet)
-    volumes:
-      - ./:/app
     environment:
       TZ: Asia/Bangkok
       # Add more environment variables here (refer to lab sheet)
