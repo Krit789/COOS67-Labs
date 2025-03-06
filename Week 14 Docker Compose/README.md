@@ -15,25 +15,20 @@
 
 **YAML** (ย่อมาจาก "YAML Ain’t Markup Language") เป็นภาษาสำหรับกำหนดข้อมูลที่เน้นความเรียบง่าย อ่านง่าย และเขียนง่ายสำหรับมนุษย์  YAML เหมาะสำหรับการเขียนไฟล์กำหนดค่าต่างๆ เนื่องจากมีโครงสร้างที่ชัดเจนโดยใช้การเยื้อง (indentation) แทนสัญลักษณ์ที่ซับซ้อนอย่าง JSON หรือ XML
 
-ไฟล์ `docker-compose.yaml` เป็นไฟล์ YAML ที่ใช้กำหนดค่าการทำงานของ Docker Compose  โดยทั่วไปจะมีส่วนประกอบหลักๆ ดังนี้:
+ไฟล์ `docker-compose.yaml` เป็นไฟล์ YAML ที่ใช้กำหนดค่าการทำงานของ Docker Compose  โดยทั่วไปจะมีส่วนประกอบหลัก  ดังนี้:
 
-### `version` (แนะนำให้ระบุเสมอ)
+### `version` (ปัจจุบันไม่ต้องใช้แล้ว)
 
 ```yaml
 version: '3.8' # หรือเวอร์ชันที่สูงกว่า เช่น '3.9', '3.10', '3.11', '3.12'
 ```
 
-#### อธิบาย:
 
-- `version` ระบุเวอร์ชันของ Docker Compose file format ที่ใช้  ถึงแม้ว่าในปัจจุบัน Docker Compose จะสามารถทำงานได้โดยไม่ระบุ `version` แต่ **ยังคงแนะนำให้ระบุเสมอ** เพื่อ:
-    - **ความเข้ากันได้:**  ระบุเวอร์ชันช่วยให้มั่นใจว่า Docker Compose จะตีความไฟล์ของคุณได้อย่างถูกต้อง ไม่ว่าจะเป็น Docker Engine หรือ Docker Compose เวอร์ชันใดก็ตาม
-    - **ฟีเจอร์ที่ชัดเจน:**  แต่ละเวอร์ชันของ Compose file format อาจมีฟีเจอร์ใหม่ๆ หรือเปลี่ยนแปลงการทำงานบางอย่าง การระบุเวอร์ชันช่วยให้คุณและทีมงานเข้าใจได้ชัดเจนว่าไฟล์นี้ถูกเขียนขึ้นสำหรับฟีเจอร์ชุดไหน
-    - **ความสามารถในการพกพา:**  เมื่อระบุเวอร์ชัน จะทำให้ไฟล์ `docker-compose.yaml` ของคุณสามารถทำงานได้ตามที่คาดหวังบนสภาพแวดล้อม Docker ที่แตกต่างกันมากขึ้น
+*   `version` ที่เคยอยู่บนสุดของไฟล์ Compose เอาไว้บอกรุ่นของไฟล์ ตอนนี้**ไม่ต้องใส่แล้ว**
+*   Compose จะใช้รูปแบบไฟล์ (schema) ที่ใหม่ที่สุดเสมอในการตรวจสอบไฟล์ Compose
+*   ถ้าไฟล์ Compose มีอะไรที่ Compose ไม่รู้จัก (เพราะเป็นของใหม่) Compose จะแค่**เตือน** ไม่ได้ทำให้เกิดปัญหา
 
-#### ทำไมต้องมี (และทำไมยังสำคัญ):
-
-- แม้ว่า Docker Compose จะพยายามรองรับไฟล์ที่ไม่มี `version` แต่การไม่ระบุอาจทำให้เกิดพฤติกรรมที่ไม่คาดคิด หรือไม่สามารถใช้ฟีเจอร์ใหม่ๆ ได้
-- การระบุ `version` เป็นแนวทางปฏิบัติที่ดีที่สุด (best practice) เพื่อให้มั่นใจถึงความเสถียรและความเข้ากันได้ในระยะยาว
+Source: [https://docs.docker.com/reference/compose-file/version-and-name/#version-top-level-element-obsolete](https://docs.docker.com/reference/compose-file/version-and-name/#version-top-level-element-obsolete)
 
 #### หมายเหตุ:
 
@@ -131,3 +126,19 @@ services:
 
 อ่านเพิ่มเติมได้ที่ Docker Compose Reference
 [https://docs.docker.com/reference/compose-file/](https://docs.docker.com/reference/compose-file/)
+
+
+# Section 2: How to Git Clone
+
+ทำการ git clone เพื่อดึง folder ที่จะใช้ใน lab  คือ folder /LAB-14
+
+```git
+git clone https://github.com/Krit789/COOS67-Labs.git
+```
+
+
+```
+cd LAB-14
+```
+
+# Section 3: Docker Compose
