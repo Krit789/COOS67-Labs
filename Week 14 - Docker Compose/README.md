@@ -207,7 +207,7 @@ Diagram ของสิ่งที่เราจะทำในวันนี
 *   ถ้าต้องการให้ application อื่น ๆ *นอก Docker network* สามารถเข้าถึง database นี้ได้, ต้องใช้ `ports` แทน `expose`  เช่น `ports: - "3306:3306"` (แต่ระวังเรื่องความปลอดภัยด้วย)
 
 ## 3.3 Node.js Application Setup
-ในส่วนต่อมา เราจะทำการตั้งค่า Node.js Applicaion Container โดยเราจะเพิ่มเติม Environment ที่ตั้งจากการทำ MariaDB Container ในส่วนก่อนหน้า เพื่อให้สามารถเชื่อมต่อ Database ได้ และเพิ่มส่วน `depends_on` เพื่อรอให้ Database นั้น Healthy ก่อนเริ่ม Application<br/>
+ในส่วนต่อมา <u>**แก้ไข**</u> app service ต่อเข้าไปในไฟล์ `docker-compose.yml` ใน Folder `demo-app` เพื่อที่เราจะทำการตั้งค่า Node.js Applicaion Container โดยเราจะเพิ่มเติม Environment ที่ตั้งจากการทำ MariaDB Container ในส่วนก่อนหน้า เพื่อให้สามารถเชื่อมต่อ Database ได้ และเพิ่มส่วน `depends_on` เพื่อรอให้ Database นั้น Healthy ก่อนเริ่ม Application<br/>
 ![alt text](./image/compose-node.png)
 นี่คือส่วนของไฟล์ Docker Compose ที่กำหนดค่าสำหรับ service ของแอปพลิเคชัน (น่าจะเป็น Node.js application):
 
@@ -288,7 +288,7 @@ docker compose up -d
 
 ### 3.5.2 เพิ่ม nginx service เข้าไปในไฟล์ `docker-compose.yml`
 
-เพิ่มส่วน `nginx` เข้าไปใน `docker-compose.yml` เพื่อสร้าง Container ที่ให้บริการ Reverse Proxy ขึ้นมา<br/>
+<u>**เพิ่ม**</u>ส่วน `nginx` service เข้าไปใน `docker-compose.yml` <u>**ไฟล์เดิม**</u>ใน Folder `demo-app` เพื่อสร้าง Container ที่ให้บริการ Reverse Proxy ขึ้นมา<br/>
 ![alt text](./image/docker-compose-nginx.png)
  นี่คือส่วนของไฟล์ Docker Compose ที่กำหนดค่าสำหรับ service Nginx ซึ่งจะทำหน้าที่เป็น Reverse Proxy:
 
