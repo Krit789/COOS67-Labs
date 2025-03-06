@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><%= task.title %></h1>
+    <div>
+      <a href="/tasks/<%= task.id %>/edit" class="btn btn-warning">Edit</a>
+      <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST" class="d-inline">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
+      </form>
+      <a href="/" class="btn btn-secondary">Back to List</a>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <span>
+        Status: 
+        <span class="badge rounded-pill bg-<%= task.status === 'completed' ? 'success' : (task.status === 'in-progress' ? 'warning' : 'secondary') %>">
+          <%= task.status %>
+        </span>
+      </span>
+      <span>Created: <%= new Date(task.created_at).toLocaleString() %></span>
+    </div>
+    <div class="card-body">
+      <% if (task.description && task.description.trim()) { %>
+        <h5 class="card-title">Description</h5>
+        <p class="card-text task-description"><%= task.description %></p>
+      <% } else { %>
+        <p class="card-text text-muted">No description provided.</p>
+      <% } %>
+      
+      <div class="text-muted mt-3">
+        <small>Last updated: <%= new Date(task.updated_at).toLocaleString() %></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

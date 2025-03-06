@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Task Manager</h1>
+    <a href="/tasks/new" class="btn btn-primary">Create New Task</a>
+  </div>
+
+  <% if (tasks.length === 0) { %>
+    <div class="alert alert-info">
+      No tasks found. Create a new task to get started.
+    </div>
+  <% } else { %>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% tasks.forEach(task => { %>
+            <tr>
+              <td><%= task.title %></td>
+              <td>
+                <span class="badge rounded-pill bg-<%= task.status === 'completed' ? 'success' : (task.status === 'in-progress' ? 'warning' : 'secondary') %>">
+                  <%= task.status %>
+                </span>
+              </td>
+              <td><%= new Date(task.created_at).toLocaleString() %></td>
+              <td>
+                <div class="btn-group btn-group-sm">
+                  <a href="/tasks/<%= task.id %>" class="btn btn-info">View</a>
+                  <a href="/tasks/<%= task.id %>/edit" class="btn btn-warning">Edit</a>
+                  <form action="/tasks/<%= task.id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

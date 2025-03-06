@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <div class="alert alert-danger">
+    <h1><%= message %></h1>
+    <% if (error && error.status) { %>
+      <h2><%= error.status %></h2>
+    <% } %>
+  </div>
+  
+  <% if (process.env.NODE_ENV === 'development' && error && error.stack) { %>
+    <div class="card mt-4">
+      <div class="card-header">Stack Trace</div>
+      <div class="card-body">
+        <pre><%= error.stack %></pre>
+      </div>
+    </div>
+  <% } %>
+  
+  <div class="mt-4">
+    <a href="/" class="btn btn-primary">Back to Home</a>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

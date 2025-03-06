@@ -1,0 +1,26 @@
+services:
+  app:
+    container_name: coos_task_app
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000/tcp"
+    depends_on:
+      - db
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=changeme
+      - DB_NAME=task_manager
+  db:
+    container_name: coos_task_db
+    image: mariadb:lts
+    restart: unless-stopped
+    expose:
+      - "3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: changeme

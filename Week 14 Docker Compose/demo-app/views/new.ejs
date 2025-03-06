@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <h1>Create New Task</h1>
+  
+  <form action="/tasks" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" name="status">
+        <option value="pending" selected>Pending</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success">Create Task</button>
+      <a href="/" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<%- include('partials/footer') %>

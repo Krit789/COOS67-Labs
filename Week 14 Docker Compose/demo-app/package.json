@@ -1,0 +1,29 @@
+{
+  "name": "coos-compose-demo-app",
+  "version": "1.0.0",
+  "description": "Demo Node.js Application for Docker Compose Lab",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "mariadb",
+    "crud",
+    "docker"
+  ],
+  "author": "Jarukrit Sripaploen",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "method-override": "^3.0.0",
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
