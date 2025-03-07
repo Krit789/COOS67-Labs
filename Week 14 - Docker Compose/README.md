@@ -183,7 +183,8 @@ Diagram ของสิ่งที่เราจะทำในวันนี
 ## 3.2 MariaDB Setup
 
 > [!WARNING]
-> กรุณา Indent ให้ถูกลำดับ โดยคำว่า `db` ควรอยู่ระดับเดียวกับ `app` และต่อ ๆ ไป
+> * กรุณา Indent ให้ถูกลำดับ โดยคำว่า `db` ควรอยู่ระดับเดียวกับ `app` และต่อ ๆ ไป
+> * `["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]` ต้องเป็นแบบนี้เท่านั้น **ไม่มีเว้นวรรค** ติดกันให้หมด ไม่งั้น Container จะไม่ Healthy
 
 เริ่มต้นจากการ<u>**เพิ่ม**</u> MariaDB ต่อเข้าไปในส่วนที่ Comment ไว้ในไฟล์ `docker-compose.yml` ใน Folder `demo-app` เพื่อสร้าง Container ที่จะรัน Database ของเราขึ้นมา<br/>
 ![alt text](./image/compose-db.png)
@@ -295,6 +296,9 @@ docker compose up -d
 ![alt text](./image/compose-remove-port.png)
 
 ### 3.5.2 เพิ่ม nginx service เข้าไปในไฟล์ `docker-compose.yml`
+
+> [!WARNING]
+> กรุณา Indent ให้ถูกลำดับ โดยคำว่า `nginx` ควรอยู่ระดับเดียวกับ `app` และ `db` และต่อ ๆ ไป
 
 <u>**เพิ่ม**</u>ส่วน `nginx` service เข้าไปใน `docker-compose.yml` <u>**ไฟล์เดิม**</u>ใน Folder `demo-app` เพื่อสร้าง Container ที่ให้บริการ Reverse Proxy ขึ้นมา<br/>
 ![alt text](./image/docker-compose-nginx.png)
