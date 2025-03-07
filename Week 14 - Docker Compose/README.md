@@ -218,7 +218,7 @@ Diagram ของสิ่งที่เราจะทำในวันนี
 
 ในส่วนต่อมา<u>**แก้ไข**</u> app service ในไฟล์ `docker-compose.yml` ใน Folder `demo-app` เพื่อที่เราจะทำการตั้งค่า Node.js Applicaion Container โดยเราจะเพิ่มเติม Environment ที่ตั้งจากการทำ MariaDB Container ในส่วนก่อนหน้า เพื่อให้สามารถเชื่อมต่อ Database ได้ และเพิ่มส่วน `depends_on` เพื่อรอให้ Database นั้น Healthy ก่อนเริ่ม Application<br/>
 ![alt text](./image/compose-node.png)
-นี่คือส่วนของไฟล์ Docker Compose ที่กำหนดค่าสำหรับ service ของแอปพลิเคชัน (น่าจะเป็น Node.js application):
+นี่คือส่วนของไฟล์ Docker Compose ที่กำหนดค่าสำหรับ service ของแอปพลิเคชัน:
 
 *   **`container_name: coos_task_app`**: ตั้งชื่อ container ที่จะถูกสร้างว่า `coos_task_app`
 *   **`build: .`**:  บอกให้ Docker build image จาก Dockerfile ที่อยู่ใน directory ปัจจุบัน (`.`)  (คือ directory ที่มีไฟล์ `docker-compose.yml` นี้อยู่ ซึ่งก็มีไฟล์ `Dockerfile` อยู่ด้วย)
