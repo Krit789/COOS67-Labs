@@ -282,6 +282,9 @@ minikube status
 
 ### 4.8 แสดงบันทึกเหตุการณ์ (Event Log)
 
+> [!IMPORTANT]
+> ต้องเปิด minikube ก่อนด้วยคำสั่ง `minikube start` ไม่งั้นจะเกิด Error ขึ้น
+
 ```powershell
 kubectl get events
 ```
@@ -336,12 +339,15 @@ minikube delete
 
 ## ลบโฟลเดอร์ `.minikube` และ `.kube`
 
+> [!IMPORTANT]
+> ใช้ Powershell เท่านั้น
+
 ```powershell
-C:\Users\{user}\.minikube (rm $HOME/.minikube)
+rm "$env:USERPROFILE\.minikube"
 ```
 
 ```powershell
-C:\Users\{user}\.kube (rm $HOME/.kube)
+rm "$env:USERPROFILE\.kube"
 ```
 
 ## ลบ Images ทั้งหมด (คำเตือน: คำสั่งนี้จะลบ Images ทั้งหมด)
