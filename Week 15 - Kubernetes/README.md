@@ -215,7 +215,7 @@ kubectl expose deployment balanced --type=LoadBalancer --port=80
 ตรวจสอบ External IP ของ service `balanced` ด้วยคำสั่ง:
 
 ```powershell
-minikube get services balanced
+kubectl get services balanced
 ```
 โดยสามารถเข้าถึง Deployment ได้ด้วย `http://<External IP>:80`
 ![](./image/kubectl-get-services-2.png)
